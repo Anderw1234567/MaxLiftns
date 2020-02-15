@@ -3,7 +3,6 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 @NgModule({
     bootstrap: [
@@ -15,7 +14,6 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
     ],
     declarations: [
         AppComponent,
-        ProfileEditorComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

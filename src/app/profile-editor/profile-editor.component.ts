@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/cli';
+import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
 	selector: 'ns-profile-editor',
@@ -7,13 +7,25 @@ import { FormBuilder } from '@angular/cli';
 	styleUrls: ['./profile-editor.component.css']
 })
 export class ProfileEditorComponent implements OnInit {
-	profileForm = this.fb.group({
+	weight: any;
+	reps: any;
+	profileForm: FormGroup;
+	constructor( private fb: FormBuilder) {
+
+	this.profileForm = this.fb.group({
 		weight: [''],
 		reps: [''],
 	});
-	constructor( private fb: FormBuilder) { }
+	}
 
 	ngOnInit(): void {
+		this.weight = this.profileForm.controls['weight'];
+		this.reps = this.profileForm.controls['reps'];
+	}
+
+	onButtonTap(){
+		this.weight.value = 555;
+		console.log('logging in onButtonTap:'+JSON.stringify(this.profileForm.value));
 	}
 
 }

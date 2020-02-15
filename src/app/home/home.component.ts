@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from '@angular/forms';
 
 @Component({
     selector: "Home",
@@ -7,11 +6,6 @@ import { FormBuilder } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-
- profileForm = this.fb.group({
-    weight: [''],
-    reps: ['']
-  });
     constructor( ) {
         // Use the component constructor to inject providers.
     }

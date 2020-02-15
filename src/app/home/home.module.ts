@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
+import { ProfileEditorComponent } from '../profile-editor/profile-editor.component';
+
 
 @NgModule({
     imports: [
@@ -12,7 +14,8 @@ import { HomeComponent } from "./home.component";
         HomeRoutingModule
     ],
     declarations: [
-        HomeComponent
+        HomeComponent,
+	ProfileEditorComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

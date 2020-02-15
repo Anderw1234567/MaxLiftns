@@ -1,1 +1,8 @@
-<Button text="profile-editor works!" class="btn btn-primary"></Button>
+<StackLayout [formGroup]="profileForm">
+<TextField formControlName="weight" hint="Weight" keyboardType="number"></TextField>
+<TextField formControlName="reps" hint="Reps" keyboardType="number"></TextField>
+<Button text="sign up"  (tap)="onButtonTap()"></Button>
+</StackLayout>
+
+
+<!--<Button text="profile-editor works!" class="btn btn-primary"></Button>-->
