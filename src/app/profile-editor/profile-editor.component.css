@@ -1,1 +1,7 @@
 /* Add mobile styles for the component here.  */
+ .thin-input {
+	 width:25%;
+	 text-align:center;
+	 margin-top:2%;
+	 margin-bottom:2;
+ }

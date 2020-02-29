@@ -1,7 +1,17 @@
-<StackLayout [formGroup]="profileForm">
-<TextField formControlName="weight" hint="Weight" keyboardType="number"></TextField>
-<TextField formControlName="reps" hint="Reps" keyboardType="number"></TextField>
-<Button text="sign up"  (tap)="onButtonTap()"></Button>
+<StackLayout [formGroup]="profileForm" style="horizontal-align:center;">
+<Label text="Enter how much weight you lifted." style="font-size:20vw;color:black;text-align:center;margin-top:2%;margin-bottom:2%;"></Label>
+<TextField formControlName="weight" hint="9000" keyboardType="number"  style="font-size:20vw;width:25%;text-align:center;margin-top:2%;margin-bottom:2%;color:black;" class="nt-input"></TextField>
+<Label text="For how many repititions?" style="font-size:20vw;color:black;text-align:center;margin-top:2%;margin-bottom:2%;"></Label>
+<TextField formControlName="reps" hint="10"  style="font-size:20vw;width:25%;text-align:center;margin-top:2%;margin-bottom:2%;color:black;" keyboardType="number"></TextField>
+<StackLayout style="horizontal-align:center;"orientation="horizontal">
+ <CheckBox  text="Male" style="color:black;float:center;"checked="false"></CheckBox>
+ <CheckBox  text="Female" style="color:black;"checked="false"></CheckBox>
+ <CheckBox  text="Other" style="color:black;"checked="false"></CheckBox>
+</StackLayout>
+<Label text="{{this.calcResult}}" [ngModelOptions]="{standalone : true }" style="font-size:20vw;color:black;text-align:center;margin-top:2%;margin-bottom:2%;"></Label>
+
+
+<Button text="Calculate" class="-primary -rounded-lg"  style="font-size:15vw;width:25%;text-align:center;margin-top:2%;margin-bottom:2%;" (tap)="onButtonTap()"></Button>
 </StackLayout>
 
 
