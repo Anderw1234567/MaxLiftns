@@ -4,9 +4,12 @@
 <Label text="For how many repititions?" style="font-size:20vw;color:black;text-align:center;margin-top:2%;margin-bottom:2%;"></Label>
 <TextField formControlName="reps" hint="10"  style="font-size:20vw;width:25%;text-align:center;margin-top:2%;margin-bottom:2%;color:black;" keyboardType="number"></TextField>
 <StackLayout style="horizontal-align:center;"orientation="horizontal">
- <CheckBox  text="Male" style="color:black;float:center;"checked="false"></CheckBox>
- <CheckBox  text="Female" style="color:black;"checked="false"></CheckBox>
- <CheckBox  text="Other" style="color:black;"checked="false"></CheckBox>
+<!--<CheckBox style="color:black;" [checked]="option.selected" (checkedChange)="elem.checked !== option.selected && changeCheckedRadio(option)" boxType="circle">{{option.text}}</CheckBox>-->
+ <CheckBox  text="Male" style="color:black;float:center;" (tap)="checkMale();" checked="false" #maleCheckBox></CheckBox>
+ <CheckBox  text="Female" style="color:black;" (tap)="checkFemale()" checked="false" #femaleCheckBox></CheckBox>
+ <CheckBox  text="Other" (checkedChange)="checkOther();"style="color:black;" checked="false" #otherCheckBox></CheckBox>
+
+	<input type="'checkbox'" (change)="onCheck('otherr')">
 </StackLayout>
 <Label text="{{this.calcResult}}" [ngModelOptions]="{standalone : true }" style="font-size:20vw;color:black;text-align:center;margin-top:2%;margin-bottom:2%;"></Label>
 

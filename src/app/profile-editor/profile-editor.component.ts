@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { RadioOption } from "./radio-option";
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { TNSCheckBoxModule } from '@nstudio/nativescript-checkbox/angular';
 
@@ -12,13 +13,16 @@ export class ProfileEditorComponent implements OnInit {
 	reps: any;
 	calcResult: any;
 	profileForm: FormGroup;
+	currentCheck = 'none';
+	@ViewChild('maleCheckBox',{static:false}) maleCheck;
+	@ViewChild('femaleCheckBox',{static:false}) femaleCheck;
+	@ViewChild('otherCheckBox',{static:false}) otherCheck;
 
 
 	//TODO: Add Radiogroup for KG/Lbs too.
 
 
 	constructor( private fb: FormBuilder) {
-
 		this.profileForm = this.fb.group({
 			weight: [''],
 			reps: [''],
@@ -27,22 +31,46 @@ export class ProfileEditorComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		//this.weight = this.profileForm.controls['weight'];
+		
 		this.profileForm.controls['weight'].valueChanges.subscribe(value =>{
 			this.weight = value;
 		});
 		this.profileForm.controls['reps'].valueChanges.subscribe(value =>{
 			this.reps = value;
 		});
-		//this.reps = this.profileForm.controls['reps'];
-		//this.calcResult = "hi lol";
 
+	}
+	
+	checkMale(){
+		this.femaleCheck.nativeElement.checked = false;
+		this.otherCheck.nativeElement.checked = false;
+		this.currentCheck = 'male';
+		
+		this.calcResult = this.currentCheck;
+	}
+
+	checkFemale(){
+		this.maleCheck.nativeElement.checked = false;
+		this.otherCheck.nativeElement.checked = false;
+		this.currentCheck = 'female';
+		this.calcResult = this.currentCheck;
+	}
+	checkOther(){
+		this.femaleCheck.nativeElement.checked = false;
+		this.maleCheck.nativeElement.checked = false;
+		this.currentCheck = 'other';
+		this.calcResult = this.currentCheck;
 	}
 
 	onButtonTap(){
+		
 		//this.weight = 555;
-		this.calcResult = 'You can lift X amount Y times.';
+		//this.calcResult = 'You can lift X amount Y times.';
+		
+
 		console.log('logging in onButtonTap:'+JSON.stringify(this.profileForm.value));
+	
+
 		//console.log('here is our weight:'+this.weight);
 		//console.log('here is our calcResult:'+this.calcResult);
 	}
